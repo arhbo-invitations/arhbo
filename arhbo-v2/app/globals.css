@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --pearl:      #FAFAF7;
+  --gold:       #B9985A;
+  --gold-light: #D4B97A;
+  --gold-pale:  #F0E8DA;
+  --palm:       #8C6A4A;
+  --coffee:     #3A2E22;
+}
+
+html {
+  direction: rtl;
+  font-family: 'Noto Naskh Arabic', serif;
+  background: var(--pearl);
+  color: var(--coffee);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* Gold divider */
+.gold-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.gold-line::before,
+.gold-line::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.4;
+}
+
+/* Sadu pattern overlay */
+.sadu-bg {
+  background-image: url('/sadu-pattern.svg');
+  background-size: 300px;
+  background-repeat: repeat;
+  opacity: 0.03;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Card */
+.card-gold {
+  border: 1px solid rgba(185, 152, 90, 0.25);
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+/* Button variants */
+.btn-gold {
+  background: linear-gradient(135deg, #B9985A, #8C6A4A);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.btn-gold:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(185, 152, 90, 0.35);
+}
+
+.btn-outline {
+  border: 1.5px solid var(--gold);
+  color: var(--palm);
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  background: transparent;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.btn-outline:hover {
+  background: var(--gold-pale);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--pearl); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fadeUp 0.6s ease forwards;
+}
